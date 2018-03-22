@@ -1,0 +1,8 @@
+.container.tasks-list.short-view
+  - if @tasks.present?
+    - @tasks.each do |task|
+      %div{id: "task_#{task.id}"}
+        = render partial: 'tasks/task', locals: {task: task}
+  - else
+    %h3 Oops!
+    %p We can't seem to find the task you're looking for.

@@ -1,0 +1,17 @@
+- if @task.errors.present?
+  .alert.alert-danger.alert-dismissible.fade.show{:role => "alert"}
+    %ul
+      - @task.errors.full_messages.each do |message|
+        %li
+          %strong= message
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"}
+
+= form_for [@project, @task] do |f|
+  .body
+    %h5 Content:
+    =f.text_field :content, class: 'form-control'
+    %h5 Due date:
+    = f.date_select :due_date, class: 'form-control'
+  .bottom
+    = f.submit "Save", class: 'btn btn-primary'

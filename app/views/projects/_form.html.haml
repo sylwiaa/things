@@ -1,0 +1,17 @@
+- if @project.errors.present?
+  .alert.alert-danger.alert-dismissible.fade.show{:role => "alert"}
+    %ul
+      - @project.errors.full_messages.each do |message|
+        %li
+          %strong= message
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"}
+
+= form_for @project, html: { multipart: true }  do |f|
+  .body
+    %h5 Title:
+    = f.text_field :title, class: 'form-control'
+    %h5 Body:
+    = f.text_area :body, class: 'form-control text'
+  .footer
+    = f.submit 'Save', class: 'btn btn-primary'

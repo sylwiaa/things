@@ -1,0 +1,10 @@
+.container-fluid
+  %ul.sidebar
+    %li= active_link_to 'Overdue!', overdue_tasks_path
+    %li= active_link_to "Projects", projects_path
+    - if @show_projects_sidebar
+      %ul
+        - current_user.projects.each do |project|
+          - if project.id
+            %li= active_link_to project.title, project_path(project)
+    %li= active_link_to 'Trash', trash_tasks_path

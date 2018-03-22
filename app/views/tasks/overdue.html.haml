@@ -1,0 +1,11 @@
+.container
+  %h1.orange-header Overdue
+
+  .col-sm-12.tasks-list
+    %p Overdue tasks
+    - if @tasks.present?
+      - @tasks.each do |task|
+        %div{ id: "task_#{task.id}"}
+          = render partial: 'tasks/task', locals: {task: task}
+    - else
+      %h3 No overdue tasks.

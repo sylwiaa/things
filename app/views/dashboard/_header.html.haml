@@ -1,0 +1,23 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  %span.navbar-brand= link_to 'Things', root_path
+  - if user_signed_in?
+    %form.form-inline{ method: 'get', action: '/search' }
+      %input.form-control.mr-sm-2{ name: 'query', placeholder: "Search", value: params[:query], type: "search" }
+
+      %button.btn.my-2.my-sm-0{:type => "submit"} Search
+  .collapse.navbar-collapse
+    %ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        %li.nav-item
+          = link_to edit_user_registration_path, class: 'nav-link' do
+            Edit account
+        %li.nav-item
+          = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+            Log out
+      - else
+        %li.nav-item
+          = link_to new_user_session_path, class: 'nav-link' do
+            Log in
+        %li.nav-item
+          = link_to new_user_registration_path, class: 'nav-link' do
+            Registration

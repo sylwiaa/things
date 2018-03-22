@@ -1,0 +1,7 @@
+.container.project
+  .back= link_to 'Back', projects_path
+  .row
+    .col-sm-12
+      %h3 Edit project
+      = render partial: 'form', project: @project
+      .button= link_to "Delete", project_path(@project), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete btn btn-danger'

@@ -1,0 +1,10 @@
+.container.index-project
+  .back= link_to 'Back', root_path
+  .row
+    .col-md-12
+      .button= link_to 'Add [+]', new_project_path, class: 'btn btn-secondary'
+      %p List of projects:
+      %table.table.success
+        - @projects.each do |project|
+          %tr
+            %td= link_to project.title, project_path(project)

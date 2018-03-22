@@ -1,0 +1,22 @@
+- task_class = []
+- task_class << 'finished' if task.finished?
+- task_class << 'overdue' if task.overdue?
+- task_class << 'today' if task.today?
+
+%div.item{ class: task_class }
+  = form_for [task.project, task], remote: true do |f|
+    .d-none= f.submit
+    %div.short-view
+      %span.task-checkbox-form
+        = f.check_box :finished
+      .task-name= task.content
+      %a.expand-task{ href: '#',  } +
+
+    %div.full-view
+      %p Rename task:
+      = f.text_field :content, class: 'form-control'
+      %p Due date:
+      = f.date_select :due_date, class: 'form-control'
+      = f.submit "save", class: 'btn btn-primary'
+      %br
+      = link_to "delete", project_task_path(task.project_id, task.id), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete btn btn-danger'

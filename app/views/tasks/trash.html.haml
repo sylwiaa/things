@@ -1,0 +1,8 @@
+.container
+  %h1.orange-header Trash
+
+  .col-sm-12.tasks-list
+    %p Deleted tasks:
+    - @tasks.each do |task|
+      %div{ id: "task_#{task.id}"}
+        = render partial: 'tasks/task', locals: {task: task}

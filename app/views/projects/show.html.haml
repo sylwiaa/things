@@ -1,0 +1,24 @@
+.container.show-project
+  .back= link_to 'Back', root_path
+  %h1 #{@project.title} project
+  .row
+    .col-sm-8.first-box
+      - if @project.body.present?
+        %h3
+          Descripion:
+        %p= @project.body
+
+
+    .col-sm-4.second-box
+      .button= link_to "Delete project", project_path(@project), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete btn btn-danger'
+      .button= link_to 'Edit project', edit_project_path(@project), class: 'edit btn btn-light'
+
+    .col-sm-12.tasks-list
+      .button= link_to 'Add task +', new_project_task_path(@project.id), class: 'btn btn-secondary'
+      %p To do:
+      - if @tasks.present?
+        - @tasks.each do |task|
+          %div{ id: "task_#{task.id}"}
+            = render partial: 'tasks/task', locals: {task: task}
+      - else
+        %h2.text-center No tasks yet

@@ -1,0 +1,137 @@
+.index-project {
+  p {
+    color:  #F5B872;
+    font-size: 32px;
+  }
+  td > a {
+    text-decoration: none;
+    color: #212529;
+  }
+  a:hover {
+    color: #F5B872;
+  }
+  .button {
+    float: right;
+  }
+}
+
+.project {
+  form {
+    max-width: 600px;
+    .text {
+      min-height: 180px;
+    }
+  }
+
+  h3 {
+    color: #F5B872;
+  }
+
+  .body {
+    h5 {
+      padding-top: 15px;
+    }
+  }
+
+  .footer{
+    float: right;
+  }
+}
+
+.show-project{
+  h1 {
+    color: #696773;
+    border-bottom: 2px solid #F5B872;
+    text-align: center;
+    font-weight: lighter;
+  }
+  .first-box {
+    padding-top: 10px;
+    p {
+      font-size: 25px;
+    }
+
+  }
+  .second-box {
+    .button {
+      float: right;
+      padding-left: 20px;
+    }
+  }
+
+  .tasks-list {
+    padding-top: 40px;
+    p {
+      color:  #F5B872;
+      font-size: 32px;
+    }
+    td > a {
+      text-decoration: none;
+      color: #212529;
+      font-size: 20px;
+    }
+    a:hover {
+      color: #F5B872;
+    }
+    .button {
+      float: right;
+    }
+
+    .item {
+      &.finished {
+        .task-name {
+          text-decoration: line-through;
+        }
+      }
+
+      .short-view {
+        border: 1px solid #6f686d;
+        border-radius: 6px;
+        background-color: #D3D0CB;
+
+        span {
+          padding-left: 20px;
+          padding-right: 20px;
+          text-align: center;
+        }
+
+        .show {
+          text-decoration: none;
+          float: right;
+          padding-right: 30px;
+          color: black;
+        }
+         a:hover {
+           color:  #F5B872;
+         }
+
+      }
+
+      .full-view {
+        border: 1px solid  #D3D0CB;
+        border-radius: 6px;
+        background-color: #EFF1F3;
+        display: none;
+        padding: 20px 0px 20px 15px;
+
+        p {
+          color: black;
+          font-size: 20px;
+        }
+        .form-control {
+          max-width: 600px;
+        }
+        .btn:hover {
+          color: #EFF1F3;
+        }
+      }
+
+      &.show {
+        .full-view {
+          display: block;
+
+        }
+      }
+    }
+  }
+}

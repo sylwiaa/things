@@ -1,0 +1,6 @@
+.container.task
+  .back= link_to 'Back', projects_path
+  .row
+    .col-sm-12
+      %h3 Add task:
+      = render partial: 'form', task: @task

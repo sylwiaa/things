@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Things
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'dashboard/header'
+    - if user_signed_in?
+      = render 'dashboard/sidebar'
+    .main-page
+      - flash.each do |name, msg|
+        = content_tag(:div, msg, class: "alert alert-info")
+      = yield
+    = render 'dashboard/footer'

@@ -1,0 +1,6 @@
+.container.project
+  .back= link_to 'Back', projects_path
+  .row
+    .col-sm-12
+      %h3 Add project:
+      = render partial: 'form', project: @project

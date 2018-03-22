@@ -1,0 +1,6 @@
+.container.task
+  .back= link_to 'Cofnij', projects_path
+  .row
+    .col-sm-12
+      %h3 Edit task
+      = render partial: 'form', task: @task
